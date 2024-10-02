@@ -6,7 +6,7 @@
 **Company**: [SUPzero.ch](https://supzero.ch), Zurich, Switzerland
 
 ## Overview
-The **VESC Tool Config Helper** is a web-based tool designed to help users configure and optimize their VESC-based motor controllers. It simplifies adjusting motor parameters and helps with easy navigation through various configuration options.
+The **VESC Tool Config Helper** is a web-based tool designed to help users configure and optimize their VESC-based Onewheel motor controllers. It simplifies adjusting parameters and helps with easy navigation through various configuration options.
 
 ## Features
 - Interactive UI for VESC parameter configuration
@@ -20,7 +20,8 @@ git clone https://github.com/playak/vesc-tool-config-helper.git
 ```
 
 ## Usage
-Open the `index.html` file in a browser, and use the interface to configure motor parameters.
+Visit (https://supzero.ch/vesc_config) for a live version of the tool.
+For local testing, open the `index.html` file in a browser, and use the interface to configure motor parameters.
 
 ## License
 This project is licensed under the MIT License.  
