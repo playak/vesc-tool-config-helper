@@ -20,7 +20,8 @@ git clone https://github.com/playak/vesc-tool-config-helper.git
 ```
 
 ## Usage
-Visit (https://supzero.ch/vesc_config) for a live version of the tool.
+Visit https://supzero.ch/vesc_config for a live version of the tool.
+Visit https://supzero.ch/vesc_config/params.php, which is a part of this project, to explore all parameters of VESC Tool and its parameters.
 For local testing, open the `index.html` file in a browser, and use the interface to configure motor parameters.
 
 ## License
