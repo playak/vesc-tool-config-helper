@@ -1,0 +1,36 @@
+{
+    "name": "VESC Config",
+    "short_name": "VESCcfg",
+    "description": "Web-based configuration helper for VESC",
+    "start_url": "/vesc_config/",
+    "id": "/vesc_config/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#007bff",
+    "icons": [
+      {
+        "src": "/vesc_config/VESCcfg-logo-192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/vesc_config/VESCcfg-logo-512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "screenshots": [
+        {
+          "src": "/vesc_config/screenshot1-desktop.png",
+          "sizes": "1280x720",
+          "type": "image/png",
+          "form_factor": "wide"
+        },
+        {
+          "src": "/vesc_config/screenshot1-mobile.png",
+          "sizes": "720x1280",
+          "type": "image/png"
+        }
+      ]
+  }
+  

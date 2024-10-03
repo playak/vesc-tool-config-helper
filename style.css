@@ -1,0 +1,217 @@
+/*
+ * Project: VESC Tool Config Helper
+ * Version: 0.1.0
+ * 
+ * Copyright (c) 2024 Jeroen Houttuin
+ * Company: SUPzero.ch, Zurich, Switzerland
+ * Email: info@supzero.ch
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice, including the original 
+ * attribution, shall be included in all copies or substantial portions of the Software.
+ * 
+ * In addition, all branding, including the logo of SUPzero.ch, may not be removed 
+ * or altered in any way in any derivative work or redistribution of this Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial;
+    font-size: larger;
+}
+select, option {
+    font-size: larger;
+}
+.heading-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+.heading-table caption {
+    font-size: 1.1em;
+    text-align: left;
+    font-weight: bold;
+    margin-top:1em;
+    margin-bottom: 0.5em;
+}
+.heading-table .highlight {
+    background: rgba(255, 255, 0, 0.4) !important;
+}
+table, tr, th, td {
+    border: thin solid silver;
+    text-align: right;
+    margin-right: 1em;
+    vertical-align: top;
+    font-size: initial;
+}
+td {
+    overflow-wrap: break-word; /* Allows words to break at appropriate points */
+}
+.red-triangle {
+    position: relative;
+}
+.red-triangle::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 0;
+    border-color: transparent red transparent transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-right: 5px;
+    vertical-align: middle;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid black;
+    cursor: pointer;
+    transform: rotate(-90deg); /* Start pointing to the right (collapsed, counterclockwise) */
+}
+.component-section, .component-compare {
+    margin-top: 20px;
+}
+.componentcompare {
+    color: silver !important;
+}
+.collapsible-content {
+    display: none; /* Collapsed by default */
+    margin-top: 10px;
+    border: none;
+    padding: 10px;
+}
+table.component
+{
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+table.component th
+{
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid #ddd;
+}
+table.component td
+{
+    border: 1px solid #ddd;
+    padding: 0.1em;
+}
+table.component tr:nth-child(odd)
+{
+background-color: white;
+}
+table.component tr:nth-child(even) 
+{
+background-color: #f2f2f2;
+}
+input {
+    text-align: right;
+}
+h1, .warning {
+    color: #f74b47;
+}
+
+/* Main button styling */
+.resetvars {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+/* Hover and active states for the main button */
+.resetvars:hover {
+    background-color: #0056b3;
+}
+.resetvars:active {
+    background-color: #004080;
+}
+.install-app {
+    background-color: #28a745; /* Modern green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+/* Hover and active states for the Install App button */
+.install-app:hover {
+    background-color: #218838; /* Darker green for hover state */
+}
+.install-app:active {
+    background-color: #1e7e34; /* Even darker green for active state */
+}
+
+/* Tooltip container */
+.confirm-tooltip {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+/* Tooltip buttons styled like .resetvars */
+.tooltip-btn {
+    margin-right: 10px;
+}
+/* Confirm button styling */
+.confirm-btn {
+    background-color: #007bff;
+    color: white;
+}
+/* Cancel button styling */
+.cancel-btn {
+    background-color: grey;
+    color: white;
+}
+.confirm-tooltip .resetvars {
+    font-size: 14px;
+    padding: 8px 16px;
+}
+/* Overlay to detect outside clicks */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 50;
+}
+.srcdownload {
+    color: blue;
+    text-decoration: none;
+    cursor: pointer;
+    display: block; /* To make each link appear on a new line */
+    margin: 5px 0; /* Add some spacing between the links */
+}
+.srcdownload:hover {
+    color: darkblue; /* Change color on hover to give a link-like effect */
+}

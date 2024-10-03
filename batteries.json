@@ -1,0 +1,18 @@
+[
+    {
+        "amax": 1.0,
+        "bid": 1,
+        "comments": "",
+        "diameter": 1.0,
+        "length": 5.0,
+        "mahmin": 1000.0,
+        "mahtypical": 1000.0,
+        "name": "AA",
+        "vempty": 1.2,
+        "vemptyempty": 1.0,
+        "vfull": 1.6,
+        "vnominal": 1.5,
+        "weight": 40.0,
+        "wh": 5.0
+    }
+]

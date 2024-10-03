@@ -1,0 +1,298 @@
+{
+    "type": "database",
+    "name": "vesc_config",
+    "objects": [
+        {
+            "type": "table",
+            "database": null,
+            "name": "batteries",
+            "withoutRowId": false,
+            "strict": false,
+            "ddl": "CREATE TABLE \"batteries\" (\n\t\"bid\"\tINTEGER NOT NULL,\n\t\"name\"\tTEXT NOT NULL,\n\t\"comments\"\tTEXT,\n\t\"vfull\"\tREAL,\n\t\"vnominal\"\tREAL,\n\t\"vempty\"\tREAL,\n\t\"vemptyempty\"\tREAL,\n\t\"diameter\"\tREAL NOT NULL,\n\t\"length\"\tREAL NOT NULL,\n\t\"weight\"\tREAL NOT NULL,\n\t\"amax\"\tREAL,\n\t\"mahmin\"\tREAL,\n\t\"mahtypical\"\tREAL,\n\t\"wh\"\tREAL,\n\tPRIMARY KEY(\"bid\" AUTOINCREMENT)\n)",
+            "columns": [
+                {
+                    "name": "bid",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "name",
+                    "type": "TEXT",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "comments",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "vfull",
+                    "type": "REAL"
+                },
+                {
+                    "name": "vnominal",
+                    "type": "REAL"
+                },
+                {
+                    "name": "vempty",
+                    "type": "REAL"
+                },
+                {
+                    "name": "vemptyempty",
+                    "type": "REAL"
+                },
+                {
+                    "name": "diameter",
+                    "type": "REAL",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "length",
+                    "type": "REAL",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "weight",
+                    "type": "REAL",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "amax",
+                    "type": "REAL"
+                },
+                {
+                    "name": "mahmin",
+                    "type": "REAL"
+                },
+                {
+                    "name": "mahtypical",
+                    "type": "REAL"
+                },
+                {
+                    "name": "wh",
+                    "type": "REAL"
+                }
+            ],
+            "constraints": [
+                {
+                    "type": "PRIMARY KEY",
+                    "definition": "PRIMARY KEY(\"bid\" AUTOINCREMENT)\n"
+                }
+            ],
+            "rows": [
+                [
+                    1,
+                    "AA",
+                    "",
+                    1.6,
+                    1.5,
+                    1.2,
+                    1,
+                    1,
+                    5,
+                    40,
+                    1,
+                    1000,
+                    1000,
+                    5
+                ],
+                [
+                    2,
+                    "AAA",
+                    null,
+                    1.6,
+                    1.5,
+                    1.2,
+                    1,
+                    1,
+                    5,
+                    30,
+                    0.7,
+                    800,
+                    800,
+                    4
+                ],
+                [
+                    3,
+                    "AAAA",
+                    "",
+                    1.5,
+                    1.5,
+                    1.2,
+                    1,
+                    1,
+                    5,
+                    20,
+                    0.5,
+                    600,
+                    600,
+                    3
+                ]
+            ]
+        },
+        {
+            "type": "table",
+            "database": null,
+            "name": "batterypacks",
+            "withoutRowId": false,
+            "strict": false,
+            "ddl": "CREATE TABLE \"batterypacks\" (\n\t\"bpid\"\tINTEGER NOT NULL,\n\t\"name\"\tTEXT NOT NULL,\n\t\"description\"\tTEXT,\n\t\"bid\"\tINTEGER NOT NULL,\n\t\"ser\"\tINTEGER NOT NULL,\n\t\"par\"\tINTEGER NOT NULL,\n\tPRIMARY KEY(\"bpid\" AUTOINCREMENT)\n)",
+            "columns": [
+                {
+                    "name": "bpid",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "name",
+                    "type": "TEXT",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "description",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "bid",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "ser",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "par",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "type": "PRIMARY KEY",
+                    "definition": "PRIMARY KEY(\"bpid\" AUTOINCREMENT)\n"
+                }
+            ],
+            "rows": [
+            ]
+        },
+        {
+            "type": "table",
+            "database": null,
+            "name": "motors",
+            "withoutRowId": false,
+            "strict": false,
+            "ddl": "CREATE TABLE \"motors\" (\n\t\"mid\"\tINTEGER NOT NULL,\n\t\"name\"\tTEXT NOT NULL,\n\t\"description\"\tTEXT,\n\t\"poles\"\tINTEGER NOT NULL,\n\t\"maxpowerloss\"\tREAL,\n\t\"openlooperpd\"\tREAL,\n\t\"sensorlesserpm\"\tREAL,\n\t\"params\"\tTEXT,\n\tPRIMARY KEY(\"mid\" AUTOINCREMENT)\n)",
+            "columns": [
+                {
+                    "name": "mid",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "name",
+                    "type": "TEXT",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "description",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "poles",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "maxpowerloss",
+                    "type": "REAL"
+                },
+                {
+                    "name": "openlooperpd",
+                    "type": "REAL"
+                },
+                {
+                    "name": "sensorlesserpm",
+                    "type": "REAL"
+                },
+                {
+                    "name": "params",
+                    "type": "TEXT"
+                }
+            ],
+            "constraints": [
+                {
+                    "type": "PRIMARY KEY",
+                    "definition": "PRIMARY KEY(\"mid\" AUTOINCREMENT)\n"
+                }
+            ],
+            "rows": [
+            ]
+        }
+    ]
+}

@@ -1,0 +1,102 @@
+<html>
+<head>
+   <script type="module" src="./index.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+<style>
+.heading-table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	max-width: 100ch;
+}
+.heading-table caption {
+	font-size: 1.1em;
+	text-align: left;
+	font-weight: bold;
+	margin-bottom: 0.5em;
+}
+.heading-table .highlight {
+	background: rgba(255, 255, 0, 0.4);
+}
+table, tr, th, td {
+	border: 1px solid #c4c4c4;
+}
+body {
+	min-height: 100vh;
+	display: grid;
+	place-content: center;
+}
+</style>
+
+</head>
+
+<body>
+
+<table id="batteries">
+
+</table>
+
+
+<table class="heading-table">
+    <caption>Frequency and average use of heading elements.</caption>
+    <colgroup>
+      <col class="highlight">
+      <col >
+      <col>
+    </colgroup>
+     <thead>
+     <tr>
+        <th scope="col">Heading</th>
+        <th scope="col">Occurrences</th>
+        <th scope="col">Average per page</th>
+     </tr>
+     </thead>
+     <tbody>
+     <tr>
+        <td><code>h1</code></td>
+        <td>10,524,810</td>
+        <td>1.66</td>
+     </tr>
+     <tr>
+        <td><code>h2</code></td>
+        <td>37,312,338</td>
+        <td>5.88</td>
+     </tr>
+     <tr>
+        <td><code>h3</code></td>
+        <td>44,135,313</td>
+        <td>6.96</td>
+     </tr>
+     <tr>
+        <td><code>h4</code></td>
+        <td>20,473,598</td>
+        <td>3.23</td>
+     </tr>
+     <tr>
+        <td><code>h5</code></td>
+        <td>8,594,500</td>
+        <td>1.36</td>
+     </tr>
+     <tr>
+        <td><code>h6</code></td>
+        <td>3,527,470</td>
+        <td>0.56</td>
+     </tr>
+     <tr>
+        <td><code>h7</code></td>
+        <td>30,073</td>
+        <td>0.005</td>
+     </tr>
+     <tr>
+        <td><code>h8</code></td>
+        <td>9,266</td>
+        <td>0.0015</td>
+     </tr>
+     </tbody>
+  </table>
+  
+  <p>TIL: <a href="https://www.matuzo.at/blog/highlighting-columns/" target="_top">https://www.matuzo.at/blog/highlighting-columns/</a></p>
+  
+</body>
+</html>

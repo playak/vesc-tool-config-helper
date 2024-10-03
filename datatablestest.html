@@ -1,0 +1,243 @@
+
+<html lang="en">
+    <head>
+    <link href="https://cdn.datatables.net/2.1.0/css/dataTables.dataTables.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/searchpanes/2.3.1/css/searchPanes.dataTables.css" rel="stylesheet">
+     
+    <script type="text/javascript" charset="utf8" src="jquery-3.7.0.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.1.0/js/dataTables.js"></script>
+    
+ 
+    </head>
+    <body>
+    <h2>parameters</h2>
+    <table class='display' id='params'>
+    <thead align='right'>
+        <tr><th>file</th><th>parameter</th><th>suffix</th><th>name</th><th>description</th></tr>
+    </thead>
+    <tbody>
+        <tr valign='top'>
+            <td valign='top'>info</td><td valign='top'>app_adc.info</td><td valign='top'></td><td valign='top'>App ADC Information</td><td valign='top'>The cruise control button will maintain the current speed while pressed when current control is used and no throttle is given. The reverse button is used to reverse the throttle when one of the corresponding control modes is used.</td>
+        </tr>
+        <tr valign='top'>
+            <td valign='top'>xxxx</td><td valign='top'>app_adc.info</td><td valign='top'></td><td valign='top'>App ADC Information</td><td valign='top'>The cruise control button will maintain the current speed while pressed when current control is used and no throttle is given. The reverse button is used to reverse the throttle when one of the corresponding control modes is used.</td>
+        </tr>
+
+        <tr><td>mc</td><td>kill_sw_mode</td><td></td><td>Kill Switch Mode</td><td>Kill switch input. When this input is active the motor is disabled and optionally braking if timeout_brake_current is greater than 0. The kill switch overrides all other inputs and can be used as an emergency stop.
+
+            The following modes can be used:
+            
+            Disabled
+            No kill switch is used.
+            
+            PPM Low
+            The kill switch is active when the PPM input goes low.
+            
+            PPM High
+            The kill switch is active when the PPM input goes high.
+            
+            ADC2 Low
+            The kill switch is active when the ADC2 input goes low.
+            
+            ADC2 High
+            The kill switch is active when the ADC2 input goes high.</td></tr><tr><td>app</td><td>l_abs_current_max</td><td> A</td><td>Absolute Maximum Current</td><td>The current magnitude above which all output will be switched off and a fault code thrown. Usually the current control loops take care of limiting the current, but in some conditions short current spikes can appear very quickly. The system can handle them quite well in most cased, so this value can be set relatively high compared to the other current values to avoid cutouts.</td></tr><tr><td>app</td><td>l_battery_cut_end</td><td> V</td><td>Battery Voltage Cutoff End</td><td>The input voltage below which current draw is not allowed anymore. There is still full braking current available as braking only charges the battery.</td></tr><tr><td>app</td><td>l_battery_cut_start</td><td> V</td><td>Battery Voltage Cutoff Start</td><td>The input voltage where current starts to get reduced. There is still full braking current available as braking only charges the battery.</td></tr><tr><td>app</td><td>l_battery_regen_cut_end</td><td> V</td><td>Battery Voltage Regen Cutoff End</td><td>The input voltage above which regen braking current is not allowed anymore.
+            
+            When regenerative braking is used, the controller can dump a large amount of energy into the battery, charging it at higher currents than the actual battery charger.
+            
+            This setting can be used to avoid overcharging the battery in long downhills or hard regen braking.
+            
+            Note that beyond this value, regen braking will be completely disabled.</td></tr><tr><td>app</td><td>l_battery_regen_cut_start</td><td> V</td><td>Battery Voltage Regen Cutoff Start</td><td>The input voltage where regen braking current starts to get reduced.
+            
+            When regenerative braking is used, the controller can dump a large amount of energy into the battery, charging it at higher currents than the actual battery charger.
+            
+            This setting can be used to avoid overcharging the battery in long downhills or hard regen braking.
+            
+            Note that beyond this value, regen braking will start to become weaker.</td></tr><tr><td>app</td><td>l_current_max</td><td> A</td><td>Motor Current Max</td><td>Maximum motor current.</td></tr><tr><td>app</td><td>l_current_max_scale</td><td></td><td>Max Current Scale</td><td>Maximum current scale. This value is multiplied with the maximum current. It is a convenient method to scale the current limits without forgetting the actual maximum value.</td></tr><tr><td>app</td><td>l_current_min</td><td> A</td><td>Motor Current Max Brake</td><td>Maximum (braking) motor current. The is the maximum current that will be fed back to the VESC and when braking, thus negative. The energy from the braking current will be fed back to the battery.</td></tr><tr><td>app</td><td>l_current_min_scale</td><td></td><td>Min Current Scale</td><td>Minimum current scale. This value is multiplied with the minimum current. It is a convenient method to scale the current limits without forgetting the actual maximum value.</td></tr><tr><td>app</td><td>l_duty_start</td><td></td><td>Duty Cycle Current Limit Start</td><td>Start to reduce the current at this duty cycle. Lowering this number will make the motor limit the torque softly when reaching max speed, however, it will also decrease the top speed a bit.</td></tr><tr><td>app</td><td>l_erpm_start</td><td></td><td>ERPM Limit Start</td><td>Start to reduce the current at this fraction of the ERPM limit. Lowering this number will make the ERPM limit softer.</td></tr><tr><td>app</td><td>l_in_current_map_filter</td><td></td><td>Input Current Map Filter</td><td>Input current filter for the mapped Q axis current limit. Range 0.0 to 1.0 where 1.0 is no filtering and the closer to 0.0 the more filtering there is. Filtering the input current before the mapped limit can affect oscillations caused by the limit.</td></tr><tr><td>app</td><td>l_in_current_map_start</td><td></td><td>Input Current Limit Map Start</td><td>Start limiting the Q axis current when the input current reaches this fraction of the maximum input current. The default value of 100% disables this function. This is useful for limiting the input current when using field weakening and MTPA.
+            
+            Setting this value too low will limit the current more than needed and setting it too high can lead to oscillation close to the maximum current. A value of 80-90% is a good starting point.</td></tr><tr><td>app</td><td>l_in_current_max</td><td> A</td><td>Battery Current Max</td><td>The maximum current that can be drawn from the battery. The battery current is always lower than or equal to the motor current.</td></tr><tr><td>app</td><td>l_in_current_min</td><td> A</td><td>Battery Current Max Regen</td><td>The maximum regenerative current that can be fed to the battery (thus negative). The battery current is always lower than or equal to the motor current.</td></tr><tr><td>app</td><td>l_max_duty</td><td> %</td><td>Maximum Duty Cycle</td><td>Maximum allowed duty cycle.</td></tr><tr><td>app</td><td>l_max_erpm</td><td></td><td>Max ERPM</td><td>The maximum electrical RPM.</td></tr><tr><td>app</td><td>l_max_erpm_fbrake</td><td></td><td>Max ERPM Full Brake</td><td>The maximum ERPM at which a full brake is allowed (BLDC Only).</td></tr><tr><td>app</td><td>l_max_erpm_fbrake_cc</td><td></td><td>Max ERPM Full Brake Current Control</td><td>The ERPM below which a direction change is allowed in current control (BLDC Only).</td></tr><tr><td>app</td><td>l_max_vin</td><td> V</td><td>Maximum Input Voltage</td><td>The input voltage above which a fault code is thrown.</td></tr><tr><td>app</td><td>l_min_duty</td><td> %</td><td>Minimum Duty Cycle</td><td>Minimum allowed duty cycle.</td></tr><tr><td>app</td><td>l_min_erpm</td><td></td><td>Max ERPM Reverse</td><td>The maximum reverse electrical RPM.</td></tr><tr><td>app</td><td>l_min_vin</td><td> V</td><td>Minimum Input Voltage</td><td>The input voltage below which a fault code is thrown.</td></tr><tr><td>app</td><td>l_slow_abs_current</td><td></td><td>Slow ABS Current Limit</td><td>Use the filtered current for the ABS max fault code. Will not trigger as easily on very short spikes.</td></tr><tr><td>app</td><td>l_temp_accel_dec</td><td> %</td><td>Acceleration Temperature Decrease</td><td>Decrease the motor and MOSFET temperature limits by this amount during acceleration. This is useful to still have braking torque left when the components get warm. A decrease of 0 % means that the acceleration temperature limits are the same as the braking temperature limits, and a decrease of 100 % meanse that the acceleration temperature limits are at 25 °C.</td></tr><tr><td>app</td><td>l_temp_fet_end</td><td> °C</td><td>MOSFET Temp Cutoff End</td><td>The MOSFET temperature above which motor current is not allowed and a fault is thrown.</td></tr><tr><td>app</td><td>l_temp_fet_start</td><td> °C</td><td>MOSFET Temp Cutoff Start</td><td>The MOSFET temperature at which motor current starts to get reduced.</td></tr><tr><td>app</td><td>l_temp_motor_end</td><td> °C</td><td>Motor Temp Cutoff End</td><td>The motor temperature above which motor current is not allowed and a fault is thrown.</td></tr><tr><td>app</td><td>l_temp_motor_start</td><td> °C</td><td>Motor Temp Cutoff Start</td><td>The motor temperature at which motor current starts to get reduced.</td></tr><tr><td>app</td><td>l_watt_max</td><td> W</td><td>Maximum Wattage</td><td>Maximum allowed wattage output. If your region has laws that only allow a limited wattage, this parameter can be useful. However, keep in mind that limiting the wattage does not make much sense in practice since torque, heat losses, mechanical wear and component load are all current dependent.
+            
+            Notice that setting this parameter to a very high value essentially disables it, which is why the default value is high. The other limits will still apply.</td></tr><tr><td>app</td><td>l_watt_min</td><td> W</td><td>Maximum Braking Wattage</td><td>Maximum allowed braking wattage (thus negative). There usually aren't any laws limiting how much braking is allowed, and limiting the wattage does not make much sense in general, so this parameter is present mostly for the sake of completeness. There might be some applications where limiting the braking wattage is useful though.
+            
+            Notice that setting this parameter to a very high value essentially disables it, which is why the default value is high. The other limits will still apply.</td></tr><tr><td>app</td><td>m_batt_filter_const</td><td></td><td>Battery Filter Constant</td><td>Battery Level Filtering. The higher this number is the more the battery level is filtered. Too little filtering will make the battery level affected by the power draw and too much filtering will prevent the battery level to keep up with changes.</td></tr><tr><td>app</td><td>m_bldc_f_sw_max</td><td> kHz</td><td>Maximum Switching Frequency</td><td>The maximum switching frequency in BLDC mode.</td></tr><tr><td>app</td><td>m_bldc_f_sw_min</td><td> kHz</td><td>Minimum Switching Frequency</td><td>The minimum switching frequency in BLDC mode.</td></tr><tr><td>app</td><td>m_current_backoff_gain</td><td></td><td>Current Backoff Gain</td><td>Gain for the BLDC and DC current backoff. Used to limit the current in duty cycle mode.</td></tr><tr><td>app</td><td>m_dc_f_sw</td><td> kHz</td><td>Switching Frequency</td><td>The switching frequency in DC mode.</td></tr><tr><td>app</td><td>m_drv8301_oc_adj</td><td></td><td>DRV8301 OC Adjustment</td><td>The threshold for the over current protection feature of the DRV8301. Lower values correspond to lower currents. See the datasheet for more information about this setting.
+            
+            Notice
+            This setting only has impact on hardware with the DRV8301</td></tr><tr><td>app</td><td>m_drv8301_oc_mode</td><td></td><td>DRV8301 OC Mode</td><td>The mode for the over current protection feature of the DRV8301. The over current protection in the DRV8301 works by measuring the voltage drop across the MOSFETs and shuts them off of it exceeds a configurable limit.
+            
+            Notice
+            This setting only has impact on hardware with the DRV8301</td></tr><tr><td>app</td><td>m_duty_ramp_step</td><td></td><td>Duty Ramp Step Max</td><td>Maximum duty cycle ramp step for DC and BLDC motors.</td></tr><tr><td>app</td><td>m_encoder_cos_amp</td><td> V</td><td>Cosine Amplitude</td><td>Amplitude of the cosine-input in volts.</td></tr><tr><td>app</td><td>m_encoder_cos_offset</td><td> V</td><td>Cosine Offset</td><td>Cosine offset in volts.</td></tr><tr><td>app</td><td>m_encoder_counts</td><td></td><td>Encoder counts</td><td>ABI Encoder
+            Number of counts for the A-B-Index encoder. This usually is the encoder resolution times 4, since every edge in the quadrature signal is counted. This setting only matters when using an ABI encoder.</td></tr><tr><td>app</td><td>m_encoder_sin_amp</td><td> V</td><td>Sine Amplitude</td><td>Amplitude of the sine-input in volts.</td></tr><tr><td>app</td><td>m_encoder_sin_offset</td><td> V</td><td>Sine Offset</td><td>Sine offset in volts.</td></tr><tr><td>app</td><td>m_encoder_sincos_filter_constant</td><td></td><td>Sin/Cos Filter Constant</td><td>Sin/Cos Encoder low pass filter constant. Will affect the ratio between lag and noise on the encoder position feedback. Range 0 to 1, where 0 has the lowest noise and most phase lag, and 1 has no lag and unfiltered noise.</td></tr><tr><td>app</td><td>m_encoder_sincos_phase_correction</td><td> °</td><td>Sin/Cos Phase Correction</td><td>Sin/Cos Phase error compensation in deg. Some sin/cos encoders do not output perfect 90° phase between sin and cos signals. This parameter allows for compensating a phase error between sin and cos signals.</td></tr><tr><td>app</td><td>m_fault_stop_time_ms</td><td> ms</td><td>Fault Stop Time</td><td>Amount of time to leave the motor disabled after a fault code.</td></tr><tr><td>app</td><td>m_hall_extra_samples</td><td></td><td>Hall Sensor Extra Samples</td><td>Read the hall sensor port this many extra samples and use a median filter. Increasing this number will reduce noise on the hall sensor readings, but makes the motor control interrupt take longer and thus limits the maximum switching frequency.</td></tr><tr><td>app</td><td>m_invert_direction</td><td></td><td>Invert Motor Direction</td><td>Invert the motor direction. This option can be used to make the motor turn in the opposite direction. All state and control commands in mc_interface will respect this setting, so it should work as well as swithcing two motor cables for all applications.</td></tr><tr><td>app</td><td>m_motor_temp_sens_type</td><td></td><td>Motor Temperature Sensor Type</td><td>Motor temperature sensor type. Most small hobby motors have a 10K NTC thermistor, whereas some larger motors have 1K PTC thermistors (such as the KTY84).</td></tr><tr><td>app</td><td>m_ntc_motor_beta</td><td> K</td><td>Beta Value for Motor Thermistor</td><td>Beta Value for Motor Thermistor.</td></tr><tr><td>app</td><td>m_ntcx_ptcx_res</td><td> kΩ</td><td>Custom NTC/PTC Resistance</td><td>Resistance of custom NTC/PTC resistor.</td></tr><tr><td>app</td><td>m_ntcx_ptcx_temp_base</td><td> °C</td><td>Custom NTC/PTC Base Temperature</td><td>Base temperature of custom NTC/PTC resistor.</td></tr><tr><td>app</td><td>m_out_aux_mode</td><td></td><td>Auxiliary Output Mode</td><td>Auxiliary output mode. Can be used to e.g. activate a relay after a certain delay for bus capacitor precharging.</td></tr><tr><td>app</td><td>m_ptc_motor_coeff</td><td> %/K</td><td>Coefficient for PTC Motor Thermistor</td><td>Coefficient for PTC Motor Thermistor. Unit: %/K</td></tr><tr><td>app</td><td>m_sensor_port_mode</td><td></td><td>Sensor Port Mode</td><td>Mode for the sensor port. Can be changed for compatibility with different rotor position sensors. Notice that this setting does not have any impact when running sensorless. 
+            
+            The modes are:
+            
+            Hall Sensors
+            The motor has hall sensors built in which give a position resolution of 120 degrees.
+            
+            ABI Encoder
+            A rotary encoder with A-B-Index output. Notice that this encoder does not help until the index pulse is found, so when running FOC open loop mode will be used for up to one mechanical revolution to find the index position when trying to run a motor for the first time after a power cycle.
+            
+            Notice that you also have to set the number of encoder counts in order to use this type of encoder. This usually is the number of pulses per revolution times 4, since every edge of both pulse trains is counted.
+            
+            AS5047 Encoder
+            An AS5047 magnetic encoder connected over SPI. This one provides absolute positions from start, but tends to have a bit of nonlinearity.
+            
+            AS5X47U Encoder
+            An AS5147U or AS5247U magnetic encoder connected over SPI. It is similar to the AS5047 but with additional safety features making it capable of automotive safety levels. It must be connected to SPI in the COMM port. To use this encoder, you have to make sure that no app uses UART, I2C, ADC2, or ADC3.
+            
+            SIN/COS Encoder
+            A Sin/Cos encoder is a position feedback device similar to a quadrature encoder, except instead of outputting digital pulses, it outputs analog voltages with sinusoidal shapes offset by 90°. Provides absolute positions from the start, but its sensitive to EMI and requires special filtering,  transient protections and shielded wiring.
+            
+            TS5700N8501 Encoder
+            This encoder uses RS485, so it has to be connected to the COMM port. A RS485-transceiver such as the ADM485 is required, where RX and TX are used as the data lines. ADC1 is used to trigger between RX and TX, which is needed as the communication is half duplex. To use this encoder, you have to make sure that no app uses UART or ADC1.
+            
+            TS5700N8501 Encoder Multiturn
+            Same as above, but uses the multiturn function. The angle is divided by 10000, thus can be used for up to 10000 revolutions. The position PID parameters need to be increased by a factor of around 10000 for this to work similarly to the single turn mode. Note that this is not a good implementation and needs improvement in the future. 180 degrees PID setpoint corresponds to multiturn position 0.
+            
+            MT6816 Encoder
+            A magnetic encoder using a high speed SPI communication. Provides absolute position from start. It has to be connected to a hardware-based SPI peripheral.
+            
+            BISSC Encoder
+            This encoder uses  RS422, so it has to be connected to the COMM port for high speed communication. A RS422-transceiver such as the MAX490 is required, where CLK and MISO are used as clock and data input lines. To use this encoder, you have to make sure that no app uses UART or ADC1. The ABI resolution field is used to set the BISSC encoder accuracy: 2^(BissC Resolution)
+            
+            TLE5102 Encoder 
+            A magnetic encoder using the bidirectional SSC protocol. Provides absolute position from start and error protected communication. Currently both “SSC SW” and “SSC HW” use software bitbanging. “SSC SW” uses the hall connector pins which must not have filters. “SSC HW” uses the 7-8 pin adc/uart connector. Recommend 5v sensor power.
+            Wires must be shielded and/or run together or you will get communication errors.“SSC SW” Connections: H1 = SCK, H2 = DATA , H3 = CS “SSC HW” Connections: ADC1 = SCK, TX = DATA , NSS = CS
+            
+            Custom Encoder 
+            This means that a native library is loaded that handles reading of the encoder and provides the decoded angle.</td></tr><tr><td>app</td><td>motor_brand</td><td></td><td>Motor Brand</td><td>The motor brand, e.g. Turnigy.</td></tr><tr><td>app</td><td>motor_description</td><td></td><td>Motor Description</td><td>This is an editor where a description can be stored for your motor configuration. Images can also be inserted. Notice that this information is not written to the VESC, so it has to be stored in an XML file.</td></tr><tr><td>app</td><td>motor_model</td><td></td><td>Motor Model</td><td>The motor model, e.g. 6374 168KV.</td></tr><tr><td>app</td><td>motor_quality_bearings</td><td></td><td>Bearing Quality</td><td>Motor bearing quality. 0 is neutral/unknown, negative is bad and positive is good.</td></tr><tr><td>app</td><td>motor_quality_construction</td><td></td><td>Construction Quality</td><td>Motor construction quality. 0 is neutral/unknown, negative is bad and positive is good.</td></tr><tr><td>app</td><td>motor_quality_description</td><td></td><td>Quality Description</td><td>A text summary of the motor quality.</td></tr><tr><td>app</td><td>motor_quality_magnets</td><td></td><td>Magnet Quality</td><td>Motor magnet quality. 0 is neutral/unknown, negative is bad and positive is good.</td></tr><tr><td>app</td><td>motor_sensor_type</td><td></td><td>Position Sensor</td><td>Does this motor come with some kind of position sensor?</td></tr><tr><td>info</td><td>motor_setting_description</td><td></td><td>Motor Setting Description</td><td>Motor Settings
+            
+            This is where you can edit your motor settings. It is very important to setup your VESC every time you connect a different motor, otherwise the VESC and/or the motor are likely to get damaged. The easiest way to set up your VESC for your motor is to use the Motor Setup Wizard. This wizard can be accessed from the welcome page, from the help menu or using the button at the bottom of this page.
+            
+            The motor settings are stored in their own configuration structure. Every time you make changes to the motor configuration you have to write the configuration to the VESC in order to apply the new settings. Reading/writing the motor configuration can be done using the buttons on the toolbar to the right. The functions of these toolbar buttons are the following:
+            
+            Read Motor Configuration. This button will read the current motor configuration from the VESC to VESC Tool.
+            Warning: All of the motor settings currently in VESC Tool will be overwritten by pressing this button.
+            
+            
+            Read Default Motor Configuration. This button will read the default motor configuration from the VESC to VESC Tool. The default configuration is hard-coded in firmware, and is how the VESC is configured right after uploading new firmware.
+            Warning: All of the motor settings currently in VESC Tool will be overwritten by pressing this button.
+            
+            
+            Write Motor Configuration. This button will write the motor configuration that currently is in VESC Tool to the VESC. Every time you make a change to the motor configuration in VESC Tool you must use this button to apply the new settings. The new settings will be used as soon as you write them to the VESC, and they will be stored in the flash memory of the VESC persistently.
+            
+            Every motor setting has three small buttons to the right of its value. They have the following functions:
+            
+            Read Current Value. This button will read the current value for this setting from the VESC.
+            
+            
+            Read Default Value. This button will read the default value for this setting from the VESC.
+            
+            Show Help. This button will show a help dialog describing what this setting does. If you are not sure about a setting the help dialog can be very useful.
+            
+            The full motor configuration, including the notes you make on the Description page, can also be written to and read from XML files using the File menu. This is a good way to keep your settings when going between different VESC Tool versions, to share your settings and to store your configuration in general.
+            
+            Notice that uploading new firmware to the VESC will reset all its settings to their default values for that firmware. This means that after uploading firmware to the VESC you have to perform the motor configuration again.</td></tr><tr><td>app</td><td>motor_type</td><td></td><td>Motor Type</td><td>BLDC
+            Trapezoidal commutation mode for PMSM motors.
+            
+            DC
+            DC motor. A DC motor is connected to phase 1 and phase 3.
+            
+            FOC
+            Field Oriented Control (FOC) for PMSM (or BLDC) motors. The motor is commutated with sine waves instead of a trapezoidal waveform as is the case for BLDC commutation. FOC runs the motors more quietly (especially at low speed and high load), is slightly more efficient and provides automatic optimal timing.
+            
+            GPD
+            General Purpose Drive between phase 1 and 3. Should be used with a custom application on the VESC, or on the computer with the VESC Tool backend providing samples.</td></tr><tr><td>app</td><td>motor_weight</td><td> g</td><td>Motor Weight</td><td>The weight of the motor in grams.</td></tr><tr><td>app</td><td>p_pid_ang_div</td><td></td><td>Position Angle Division</td><td>Angle division for the position controller. Can be used to map one control rotation to several motor rotations.</td></tr><tr><td>app</td><td>p_pid_gain_dec_angle</td><td> °</td><td>Gain Decrease Angle</td><td>Decrease position PID-gains when the errors is below this angle in electrical degrees. Helps at low speed when using low resolution encoders, such as hall sensors. A value of around 300 seems to work ok with hall sensors.</td></tr><tr><td>app</td><td>p_pid_kd</td><td></td><td>Position PID Kd</td><td>Derivative gain for the position controller.</td></tr><tr><td>app</td><td>p_pid_kd_filter</td><td></td><td>Position PID Kd Filter</td><td>Filter on derivative term for position controller. The range is 0 to 1, where 0 is the maximum amount of filtering (infinite) and 1 is no filtering.</td></tr><tr><td>app</td><td>p_pid_kd_proc</td><td></td><td>Position PID Kd Process</td><td>Derivative gain for the position controller. This derivative term is applied on the process variable (position_now) only and not on the error term (position_set - position_now). This way oscillations can be dampened without amplifying control signal input.</td></tr><tr><td>app</td><td>p_pid_ki</td><td></td><td>Position PID Ki</td><td>Integral gain for the position controller.</td></tr><tr><td>app</td><td>p_pid_kp</td><td></td><td>Position PID Kp</td><td>Proportional gain for the position controller.</td></tr><tr><td>app</td><td>p_pid_offset</td><td> °</td><td>Position PID Offset Angle</td><td>Angle offset for the position controller.</td></tr><tr><td>mc</td><td>pairing_done</td><td></td><td>Pairing Done</td><td>Pairing done flag. If this flag is set, a bluetooth connection can only be made if the VESC Tool instance making the connection has been paired to this VESC. The pairing is done by storing the UUID of the VESC in the pairing list.</td></tr><tr><td>mc</td><td>permanent_uart_enabled</td><td></td><td>Enable Permanent UART</td><td>Enable the permanent UART port (if the hardware has one). This port can be connected to e.g. the NRF51 for providing a BLE link. You may want to disable this to prevent access to your VESC over BLE.</td></tr><tr><td>app</td><td>pwm_mode</td><td></td><td>PWM Mode</td><td>The PWM mode to use for BLDC motors. Synchronous is the most tested and recommended mode. The others are likely to cause problems.</td></tr><tr><td>app</td><td>s_pid_allow_braking</td><td></td><td>Allow Braking</td><td>Allow the speed controller to apply braking current. In general this option should be enabled, but for some applications it might make sense to disable braking during speed control.</td></tr><tr><td>app</td><td>s_pid_kd</td><td></td><td>Speed PID Kd</td><td>Derivative gain for the speed controller. FOC and BLDC need different parameters because their speed controllers differ.</td></tr><tr><td>app</td><td>s_pid_kd_filter</td><td></td><td>Speed PID Kd Filter</td><td>Filter on derivative term for speed controller. The range is 0 to 1, where 0 is the maximum amount of filtering (infinite) and 1 is no filtering.</td></tr><tr><td>app</td><td>s_pid_ki</td><td></td><td>Speed PID Ki</td><td>Integral gain for the speed controller. FOC and BLDC need different parameters because their speed controllers differ.</td></tr><tr><td>app</td><td>s_pid_kp</td><td></td><td>Speed PID Kp</td><td>Proportional gain for the speed controller. FOC and BLDC need different parameters because their speed controllers differ.</td></tr><tr><td>app</td><td>s_pid_min_erpm</td><td></td><td>Minimum ERPM</td><td>ERPM below which the speed controller is disabled.</td></tr><tr><td>app</td><td>s_pid_ramp_erpms_s</td><td></td><td>Ramp eRPMs per second</td><td>This allows to control how fast the input of the speed command is allowed to increase each second. If user does not want to use this ramp, just apply a negative value such as -1.0. Only positive values are considered.</td></tr><tr><td>app</td><td>s_pid_speed_source</td><td></td><td>Speed Source</td><td>Speed source for the PID speed controller.
+            
+            PLL
+            Phase locked loop. Low noise, but slow response.
+            
+            Fast Estimator
+            Filtered phase difference per time. Faster than the PLL but more noise.
+            
+            Faster Estimator
+            Same as fast estimator, but less filtering. Fastest update but the most noise.</td></tr><tr><td>app</td><td>sensor_mode</td><td></td><td>Sensor Mode</td><td>Sensor mode for BLDC commutation. Hybrid means that sensors will be used at low speed and sensorless at high speed.</td></tr><tr><td>mc</td><td>servo_out_enable</td><td></td><td>Enable Servo Output</td><td>Enable servo output on PPM-port when PPM-app is disabled.</td></tr><tr><td>mc</td><td>shutdown_mode</td><td></td><td>Shutdown Mode</td><td>Shutdown mode for hardware that supports it (such as the VESC HD). Determines how the VESC shuts itself off, which eliminates the need for an external switch.
+            
+            NOTE: Most VESCs with this feature also support push to start, which means that the VESC will switch on as soon as the motor is turned at a minimum speed.
+            
+            The available modes are:
+            
+            ALWAYS_OFF
+            The VESC power is only determined by the inverted state of the shutdown input.
+            
+            ALWAYS_ON
+            The VESC always stays on after being powered.
+            
+            TOGGLE_BUTTON_ONLY
+            A normally closed (NC) momentary button can be connected to the shutdown input to toggle the power on or off. The VESC will sample the button and determine whether it is pressed, which can be used to shut down after the button is released.
+            
+            OFF_AFTER_x
+            Same as the TOGGLE_BUTTON_ONLY mode, but the VESC will shut down after X time of inactivity. This mode is useful for setups without any switch at all if the hardware supports push to start, such as the VESC HD.</td></tr><tr><td>app</td><td>si_battery_ah</td><td> Ah</td><td>Battery Capacity</td><td>Battery capacity in ampere hours.</td></tr><tr><td>app</td><td>si_battery_cells</td><td></td><td>Battery Cells Series</td><td>Battery cells in series.</td></tr><tr><td>app</td><td>si_battery_type</td><td></td><td>Battery Type</td><td>Battery Type
+            
+            BATTERY_TYPE_LIION_3_0__4_2,
+            Lithium ion, voltage range: 3.0 to 4.2
+            
+            BATTERY_TYPE_LIIRON_2_6__3_6,
+            Lithium iron phosphate, voltage range: 2.6 to 3.6
+            
+            BATTERY_TYPE_LEAD_ACID
+            Lead Acid, voltage range: 2.1 to 2.36</td></tr><tr><td>app</td><td>si_gear_ratio</td><td></td><td>Gear Ratio</td><td>Gear ratio. For example, if the motor has a 12 tooth pulley and the wheel has a 36 tooth pulley, the gear ratio is:
+            
+            36 / 12 = 3.0</td></tr><tr><td>app</td><td>si_motor_nl_current</td><td> A</td><td>Motor No Load Current</td><td>No load current for the motor. Can be measured by running the motor at around 50% duty cycle without load and noting the motor current draw.
+            
+            The no load current can be used in the motor comparison tool for calculating efficiencies and comparing different motors, gear ratios etc.</td></tr><tr><td>app</td><td>si_motor_poles</td><td></td><td>Motor Poles</td><td>Motor pole count. Most outrunners have 14 poles. Inrunners usually have 2 or 4 poles. The motor pole count is required for speed and travel distance calculation.</td></tr><tr><td>app</td><td>si_wheel_diameter</td><td> mm</td><td>Wheel Diameter</td><td>Wheel diameter, in mm.</td></tr><tr><td>app</td><td>sl_bemf_coupling_k</td><td></td><td>BEMF Coupling</td><td>BEMF coupling. Roughly describes how much of the input voltage is seen on the BEMF at low modulation. Compensating for that at low speed helps the startup a lot.</td></tr><tr><td>app</td><td>sl_cycle_int_limit</td><td></td><td>Cycle Integrator Limit</td><td>Cycle integrator limit. This is how much area will be integrated under the back EMF after a zero crossing before doing a commutation. A too low value will cause a too early commutation, and a too high value will cause a too late commutation. A too late commutation will cause more problems than too early commutations.</td></tr><tr><td>app</td><td>sl_cycle_int_rpm_br</td><td></td><td>BR ERPM</td><td>The ERPM at which phase advance (timing) is the maximum.</td></tr><tr><td>app</td><td>sl_max_fullbreak_current_dir_change</td><td> A</td><td>Max Brake Current at Direction Change</td><td>Only allow motor direction change below this current.</td></tr><tr><td>app</td><td>sl_min_erpm</td><td></td><td>Minimum ERPM</td><td>Minimum sensorless ERPM (BLDC Only). Run the motor in open loop when the estimated ERPM is below this value.</td></tr><tr><td>app</td><td>sl_min_erpm_cycle_int_limit</td><td></td><td>Minimum ERPM Integrator</td><td>The minimum ERPM for which the integrator limit is calculated. Setting this too low will make the coupling compensation too large at low speed resulting in bad startup.</td></tr><tr><td>app</td><td>sl_phase_advance_at_br</td><td></td><td>Phase Advance at BR ERPM</td><td>Phase (timing) advance at the BR ERPM value. Below that value the advance will be less proportional to the current ERPM.</td></tr><tr><td>app</td><td>sp_pid_loop_rate</td><td></td><td>PID Loop Rate</td><td>Rate at which the position and speed controllers run.</td></tr><tr><td>mc</td><td>timeout_brake_current</td><td> A</td><td>Timeout Brake Current</td><td>Apply brake with this amount of current after a timeout.</td></tr><tr><td>mc</td><td>timeout_msec</td><td> ms</td><td>Timeout</td><td>Switch off the motor when no input has beed received for this amount of time. Notice that VESC Tool will send alive packets while connected, so the timeout won't occur before you disconnect VESC Tool even if the input gets disconnected.</td></tr><tr><td>mc</td><td>uavcan_esc_index</td><td></td><td>UAVCAN ESC Index</td><td>ESC index in UAVCAN messages.</td></tr><tr><td>mc</td><td>uavcan_raw_mode</td><td></td><td>UAVCAN Raw Throttle Mode</td><td>Drive mode for the raw throttle command in UAVCAN.
+            
+            Current Control
+            The raw command corresponds to a fraction of the configured current limit. 1.0 is maximum current forwards and -1.0 is maximum current reverse.
+            
+            Current No Reverse Brake
+            Same as current control, but negative values only give braking and don't start the motor in the other direction.
+            
+            Duty Cycle Control
+            Duty cycle control.
+            
+            RPM Control
+            RPM control. Use the raw command times the maximum configured ERPM value. Negative values will run the motor in reverse. Note that this will set the value in ERPM, so the RPM will be scaled by the number of pole pairs.</td></tr><tr><td>mc</td><td>uavcan_raw_rpm_max</td><td></td><td>UAVCAN Raw RPM Max</td><td>Maximum ERPM for the RPM mode of the raw command.</td></tr><tr><td>mc</td><td>uavcan_status_current_mode</td><td></td><td>UAVCAN Status Current Mode</td><td>Current to send in status message.</td></tr><tr><td>info</td><td>wizard_startup_conclusion</td><td></td><td>Conclusion</td><td>You are now ready to start using VESC Tool. If you have any questions, visit 
+            http://vesc-project.com/forum</td></tr><tr><td>info</td><td>wizard_startup_intro</td><td></td><td>Welcome to VESC® Tool</td><td>Welcome to VESC Tool. Since this is the first time you start this version of VESC Tool, the introduction is shown. Please read all instructions carefully for your own safety.</td></tr><tr><td>info</td><td>wizard_startup_usage</td><td></td><td>Usage</td><td>VESC® Tool and the VESC® firmware are experimental software designed to develop and test electrical systems incorporating electric motors or actuators. Electrical systems can cause danger to humans, property and nature; therefore precautions shall be taken to avoid any risk. Under no circumstances shall the software be used where humans or property are put to risk without thoroughly validating and testing the whole system. Software and hardware interact in various ways, and software developers cannot foresee all possible combinations of hardware used together with their software, nor problems that can occur in these different combinations. 
+            Things that can happen, even when using the correct settings, are
+            electrical failure
+            fire
+            electric shock
+            hazardous smoke
+            overheating motors and actuators
+            overstrained power sources, causing fire or explosions (e.g. Lithium Ion Batteries)
+            motors or actuators stopping from spinning/moving
+            motors or actuators locking in, acting like a brake (full stop)
+            motors or actuators losing control over torque production (uncontrolled acceleration or braking)
+            interferences with other systems
+            other non-intended or unforeseeable behavior of the system
+            VESC Tool and the VESC firmware are developer tools that for safety reasons may only be used
+            by experts and experienced users, knowing exactly what they do.
+            following safety standards applicable in the area of usage.
+            under safe conditions where software or hardware malfunction will not lead to death, injuries or severe property damage. jan@lul.com 
+            keeping in mind that software and hardware failures can happen. Although we design our products to minimize such issues, you should always operate with the understanding that a failure can occur at any point of time and without warning. As such, you shall take the appropriate precautions to minimize danger in case of failure.</td></tr><tr><td>info</td><td>wizard_startup_warranty</td><td></td><td>Warranty</td><td>LIMITED WARRANTY STATEMENT 
+            1. Warranty
+            1.1 THERE IS NO WARRANTY FOR THE VESC® SOFTWARE (VESC TOOL AND THE VESC FIRMWARE - PROGRAM FOR SHORT) TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM AS IS WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION. 
+            1.2 Benjamin Vedder and contributors (the publisher(s) for short) shall not be liable for any defects that are caused by neglect, misuse or mistreatment by the Customer, including improper installation or testing, or for any products that have been altered or modified in any way by the Customer. Moreover, the publisher(s) shall not be liable for any defects that result from the Customers design, specifications or instructions for such products. Testing and other quality control techniques are used to the extent the publisher(s) deems necessary. 
+            1.3 The Customer agrees that prior to using any systems that include Open Source VESC® Software, the Customer will test such systems and the functionality of the products as used in such systems. The publisher(s) may provide technical, applications or design advice, quality characterization, reliability data or other services. The Customer acknowledges and agrees that providing these services shall not expand or otherwise alter the publisher(s) warranties, as set forth above, and that no additional obligations or liabilities shall arise from the publisher(s) providing such services. 
+            1.4 VESC® software products are not authorized for use in safety-critical applications where a failure of the Open Source VESC® software would reasonably be expected to cause severe personal injury or death. Safety-critical applications include, without limitation, life support devices and systems, equipment or systems for the operation of nuclear facilities and weapons systems. Open Source VESC® software is neither designed nor intended for use in military or aerospace applications or environments, nor for automotive applications or the automotive environment. The Customer acknowledges and agrees that any such use of VESC® software is solely at the Customer's risk, and that the Customer is solely responsible for compliance with all legal and regulatory requirements in connection with such use. 
+            1.5 The Customer acknowledges and agrees that the Customer is solely responsible for compliance with all legal, regulatory and safety-related requirements concerning the products and any use of the publisher(s) softwrae  products in the Customer's applications, not withstanding any applications-related information or support that may be provided by the publisher(s). 
+            2. Limitation of Liability 
+            IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS THE PROGRAM AS PERMITTED THROUGH THE GNU GENERAL PUBLIC LICENSE (GNU GPL), BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. 
+            This section will survive the termination of the warranty period. 
+            3. Consequential Damages Waiver.
+            In no event shall the publisher(s) be liable to the Customer or any third parties for any special, collateral, indirect, punitive, incidental, consequential or exemplary damages in connection with or arising out of the products provided hereunder, regardless of whether the publisher(s) has been advised of the possibility of such damages. 
+            This section will survive the termination of the warranty period. 
+            4. Changes to Specifications.
+            The publisher(s) may make changes to specifications and product descriptions at any time, without notice. The Customer must not rely on the absence or characteristics of any features or instructions marked, reserved or undefined. The publisher(s) reserves these for future definition and shall have no responsibility whatsoever for conflicts or incompatibilities arising from future changes to them. The product information on the Web Site or Materials is subject to change without notice. Do not finalize a design with this information. 
+            5. Statutory laws. *
+            (i) some countries, regions, states or provinces do not allow the exclusion or limitation of remedies or of incidental, punitive, or consequential damages, or the applicable time periods, so the above limitations or exclusions may not apply.
+            (ii) except to the extent lawfully permitted, this limited warranty does not exclude, restrict or modify statutory rights applicable to where the product is sold but, rather, is in addition to these rights.
+            (*) European Consumer Centres provide information on EU-wide consumer laws as well as consumer laws for specific countries: http://ec.europa.eu/consumers/ecc/contact_en.htm 
+            
+            The LIMITED WARRANTY STATEMENT is released as Creative Commons Attribution ShareAlike 3.0. 
+            This means you can use it on your own derived works, in part or completely, as long as you also adopt the same license. You find the complete text of the license at https://creativecommons.org/licenses/by-sa/3.0/legalcode</td></tr>
+            
+
+
+    </tbody>
+    </table>
+    <script type="text/javascript" charset="utf8">
+    jQuery(document).ready(function(){
+         new DataTable("#params", {destroy:true, paging:false, stateSave:true, stateDuration: 60*60*24*30});
+    });
+    </script>
+    </body></html>
