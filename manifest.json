@@ -1,6 +1,6 @@
 {
     "name": "VESC Config",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "short_name": "VESCcfg",
     "description": "Web-based configuration helper for VESC",
     "start_url": "/vesc_config/",
