@@ -1,6 +1,6 @@
 /*
  * Project: VESC Tool Config Helper
- * Version: 0.1.0
+ * Version: 0.1.3
  * 
  * Copyright (c) 2024 Jeroen Houttuin
  * Company: SUPzero.ch, Zurich, Switzerland
@@ -261,6 +261,7 @@ function rerender()
       contentDiv.toggle(isVisible);
       $(this).css('transform', isVisible ? 'rotate(0deg)' : 'rotate(-90deg)');
   });
+  trmouseovers();
 }
 
 // highlight the currently selected colums in html tables
@@ -332,7 +333,7 @@ function safeEval(formula, logit = 0) {
    // Step 1: Parse the formula into an AST
    let ast;
    try {
-       ast = acorn.parse(formula, { ecmaVersion: 2020 });
+       ast = acorn.parse(formula, { ecmaVersion: 0.1.3
    } catch (error) {
        if (logit) {
            console.log('Invalid formula syntax', error);
@@ -703,7 +704,33 @@ if ('serviceWorker' in navigator) {
    });
 });
 
-
+// darken table rows on mouseover
+function trmouseovers()
+{
+   $("tr").hover(
+     function() {
+       // Store the original background color
+       var originalColor = $(this).css("background-color");
+       // Darken the color slightly
+       $(this).css("background-color", darkenColor(originalColor, 0.1));
+       // Save the original color in data attribute to restore later
+       $(this).data("originalColor", originalColor);
+     },
+     function() {
+       // Restore the original background color
+       $(this).css("background-color", $(this).data("originalColor"));
+     }
+   );
+   // Function to darken the color
+   function darkenColor(color, percent) {
+     // Convert RGB color to an array
+     var colorArray = color.match(/\d+/g).map(Number);
+     for (var i = 0; i < 3; i++) {
+       colorArray[i] = Math.floor(colorArray[i] * (1 - percent));
+     }
+     return 'rgb(' + colorArray.join(', ') + ')';
+   }
+ }
 
 
 

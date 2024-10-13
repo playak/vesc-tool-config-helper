@@ -1,6 +1,6 @@
 /*
  * Project: VESC Tool Config Helper
- * Version: 0.1.0
+ * Version: 0.1.3
  * 
  * Copyright (c) 2024 Jeroen Houttuin
  * Company: SUPzero.ch, Zurich, Switzerland
@@ -27,7 +27,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-const CACHE_NAME = 'vesc-cache-v0.1.0';
+
+const CACHE_NAME = 'vesc-cache-v0.1.3';
+const EXTERNAL_CACHE = 'external-cache-v0.1.3';
 
 const urlsToCache = [
     '/vesc_config/',
@@ -36,15 +38,20 @@ const urlsToCache = [
     '/vesc_config/index.js',
     '/vesc_config/cookies.js',
     '/vesc_config/tooltipster/dist/js/tooltipster.bundle.min.js',
+    '/vesc_config/VESCcfg-logo-512.png',
+    '/vesc_config/VESCcfg-logo-192.png'
+];
+
+// External resources to apply network-first strategy
+const externalResources = [
     'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js',
     'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js',
     'https://cdn.jsdelivr.net/npm/acorn@8.4.1/dist/acorn.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.2.1/exceljs.min.js"',
-    '/vesc_config/VESCcfg-logo-512.png',
-    '/vesc_config/VESCcfg-logo-192.png'
-  ];
+    'https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.2.1/exceljs.min.js',
+    'https://www.googletagmanager.com/gtag/js?id=G-T11KJBY66R'
+];
 
-// Install the service worker and cache files
+// Install the service worker and cache local files
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
@@ -53,27 +60,40 @@ self.addEventListener('install', function(event) {
   );
 });
 
-// fetch listener to update images from time to time
+// Fetch event handler for local and external resources
 self.addEventListener('fetch', (event) => {
-    // Only handle requests for images (optional, based on your needs)
-    if (event.request.destination === 'image') {
+    if (externalResources.some(resource => event.request.url.includes(resource))) {
+        // Network-first strategy for external resources
         event.respondWith(
-            caches.open('my-cache').then((cache) => {
+            caches.open(EXTERNAL_CACHE).then((cache) => {
+                return fetch(event.request).then((networkResponse) => {
+                    cache.put(event.request, networkResponse.clone());
+                    return networkResponse;
+                }).catch(() => cache.match(event.request));
+            })
+        );
+    } else if (event.request.destination === 'image') {
+        // Custom strategy for images
+        event.respondWith(
+            caches.open(CACHE_NAME).then((cache) => {
                 return cache.match(event.request).then((response) => {
-                    // Fetch the request in the background and update the cache
                     const fetchPromise = fetch(event.request).then((networkResponse) => {
                         if (networkResponse && networkResponse.status === 200) {
-                            cache.put(event.request, networkResponse.clone());  // Cache the new response
+                            cache.put(event.request, networkResponse.clone());
                         }
                         return networkResponse;
                     }).catch(() => {
-                        // Handle network failure (optional)
                         console.warn('Fetch failed; returning cached image (if available)');
                     });
-
-                    // Return the cached response if available, otherwise the network fetch
                     return response || fetchPromise;
                 });
+            })
+        );
+    } else {
+        // Cache-first strategy for other requests
+        event.respondWith(
+            caches.match(event.request).then((response) => {
+                return response || fetch(event.request);
             })
         );
     }
@@ -81,12 +101,12 @@ self.addEventListener('fetch', (event) => {
 
 // Activate the service worker and clean up old caches
 self.addEventListener('activate', function(event) {
-  const cacheWhitelist = [CACHE_NAME];
+  const cacheWhitelist = [CACHE_NAME, EXTERNAL_CACHE];
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.map(function(cacheName) {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
+          if (!cacheWhitelist.includes(cacheName)) {
             return caches.delete(cacheName);
           }
         })
