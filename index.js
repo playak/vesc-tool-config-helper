@@ -1,6 +1,6 @@
 /*
  * Project: VESC Tool Config Helper
- * Version: 0.1.5
+ * Version: 0.1.6
  * 
  * Copyright (c) 2024 Jeroen Houttuin
  * Company: SUPzero.ch, Zurich, Switzerland
@@ -333,7 +333,7 @@ function safeEval(formula, logit = 0) {
    // Step 1: Parse the formula into an AST
    let ast;
    try {
-       ast = acorn.parse(formula, { ecmaVersion: 0.1.5
+       ast = acorn.parse(formula, { ecmaVersion: 0.1.6
    } catch (error) {
        if (logit) {
            console.log('Invalid formula syntax', error);
