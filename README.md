@@ -1,7 +1,7 @@
 
 # VESC Tool Config Helper
 
-**Version**: 0.1.10
+**Version**: 0.1.11
 **Author**: Jeroen Houttuin  
 **Company**: [SUPzero.ch](https://supzero.ch), Zurich, Switzerland
 

@@ -1,0 +1,10 @@
+# Enable mod_rewrite
+RewriteEngine On
+
+# If someone directly accesses 'params.php', redirect them to 'vescparameters/'
+RewriteCond %{THE_REQUEST} \s/params\.php[\s?] [NC]
+RewriteRule ^params\.php$ /vescparameters/ [R=301,L]
+
+# If the requested URL is 'vescparameters/', rewrite it to 'params.php'
+RewriteRule ^vescparameters/?$ params.php [L]
+
