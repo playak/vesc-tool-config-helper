@@ -1,6 +1,6 @@
 /*
  * Project: VESC Tool Config Helper
- * Version: 0.1.11
+ * Version: 0.1.12
  * 
  * Copyright (c) 2024 Jeroen Houttuin
  * Company: SUPzero.ch, Zurich, Switzerland
@@ -28,8 +28,8 @@
  * THE SOFTWARE.
  */
 
-const CACHE_NAME = 'vesc-cache-v0.1.11';
-const EXTERNAL_CACHE = 'external-cache-v0.1.11';
+const CACHE_NAME = 'vesc-cache-v0.1.12';
+const EXTERNAL_CACHE = 'external-cache-v0.1.12';
 
 const urlsToCache = [
     '/vesc_config/',
