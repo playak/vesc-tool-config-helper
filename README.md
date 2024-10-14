@@ -1,7 +1,7 @@
 
 # VESC Tool Config Helper
 
-**Version**: 0.1.9
+**Version**: 0.1.10
 **Author**: Jeroen Houttuin  
 **Company**: [SUPzero.ch](https://supzero.ch), Zurich, Switzerland
 
@@ -20,7 +20,7 @@ git clone https://github.com/playak/vesc-tool-config-helper.git
 ```
 
 ## Usage
-Open the `index.html` file in a browser, and use the interface to configure motor parameters.
+Open the `index.htm` file in a browser, choose your components, and follow the colored table to configure your parameters in VESC Tool.
 
 ## License
 This project is licensed under the MIT License.  
